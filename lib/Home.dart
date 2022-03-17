@@ -1,57 +1,63 @@
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+class Home extends StatelessWidget {
+  const Home({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+       appBar: AppBar(
+         backgroundColor: Color(0xff316847),
+        title: const Text('Book Shop'),
+      ),
       drawer: Drawer(
         child: Column(
           children: [
-            Container(
-              height: 30,
-            ),
-            UserAccountsDrawerHeader( currentAccountPicture: ClipRRect(
+            UserAccountsDrawerHeader(
+              decoration: BoxDecoration(
+                color: Color(0xff316847),
+              ), 
+              arrowColor: Color(0xff316847),
+              currentAccountPicture: ClipRRect(
               borderRadius: BorderRadius.circular(40),
               child: Image.network("https://thispersondoesnotexist.com/image")),
               accountName: Text("João Pedro"), accountEmail: Text("jpsouza4032@gmail.com")),
             const ListTile(
               leading: Icon(Icons.home),
-              title: Text("Home"),
+              title: Text("Menu"),
               textColor: Colors.black,
             ),
             const ListTile(
               leading: Icon(Icons.monetization_on),
-              title: Text("Transações"),
+              title: Text("Meus pedidos"),
               textColor: Colors.black,
             ),
             const ListTile(
-              leading: const Icon(Icons.calendar_today),
-              title: const Text("Agenda Financeira"),
+              leading: const Icon(Icons.shopping_cart),
+              title: const Text("Meu carrinho"),
               textColor: Colors.black,
             ),
             ListTile(
               leading: const Icon(Icons.login),
               title: const Text("SAIR"),
               textColor: Colors.red,
-              onTap: () { Navigator.of(context).pushReplacementNamed('/LoginPage'); }
+              onTap: () { Navigator.of(context).pushReplacementNamed('/'); }
             ),
           ],
         ),
       ),
+
+      //tela padrao
+      //tela padrao
         body: Column(
           children: [
             Container(
               height: 50,
             ),
 
-            const Center(child: Text('MARCELOOOO'),)
+            const Center(child: Text('just testing'),)
           ],
         ),
-      appBar: AppBar(
-        title: const Text('App Bar'),
-      ),
       );
   }
 }
